@@ -1,0 +1,29 @@
+2016-05-27T17:22:48.1974047Z Set workingFolder to default: C:\LR\MMS\Services\Mms\TaskAgentProvisioner\Tools\agents\1.99.0\tasks\PublishBuildArtifacts\1.0.30
+2016-05-27T17:22:48.4454062Z ##[debug]loading inputs and endpoints
+2016-05-27T17:22:48.4464061Z ##[debug]loading ENDPOINT_AUTH_$/
+2016-05-27T17:22:48.4494058Z ##[debug]loading ENDPOINT_AUTH_SYSTEMVSSCONNECTION
+2016-05-27T17:22:48.4494058Z ##[debug]loading INPUT_ARTIFACTNAME
+2016-05-27T17:22:48.4504059Z ##[debug]loading INPUT_ARTIFACTTYPE
+2016-05-27T17:22:48.4504059Z ##[debug]loading INPUT_PATHTOPUBLISH
+2016-05-27T17:22:48.4514062Z ##[debug]loading INPUT_TARGETPATH
+2016-05-27T17:22:48.4514062Z ##[debug]loaded 6
+2016-05-27T17:22:48.4524053Z ##[debug]check path : C:\LR\MMS\Services\Mms\TaskAgentProvisioner\Tools\agents\1.99.0\tasks\PublishBuildArtifacts\1.0.30\task.json
+2016-05-27T17:22:48.4534063Z ##[debug]set resource file to: C:\LR\MMS\Services\Mms\TaskAgentProvisioner\Tools\agents\1.99.0\tasks\PublishBuildArtifacts\1.0.30\task.json
+2016-05-27T17:22:48.4534063Z ##[debug]system.culture=en-US
+2016-05-27T17:22:48.4574058Z ##[debug]PathtoPublish=C:\a\1\a
+2016-05-27T17:22:48.4574058Z ##[debug]check path : C:\a\1\a
+2016-05-27T17:22:48.4584057Z ##[debug]ArtifactName=drop
+2016-05-27T17:22:48.4584057Z ##[debug]ArtifactType=Container
+2016-05-27T17:22:48.4594062Z ##[debug]TargetPath=\\my\share\Maven Build JNBRTax\20160527.2
+2016-05-27T17:22:48.9521582Z Max Concurrent Uploads 2, Max Creators 1
+2016-05-27T17:22:49.0011560Z Found 4 files to upload.
+2016-05-27T17:22:49.0061572Z Files found locally 4,
+2016-05-27T17:22:49.0061572Z Files evaluated 0,
+2016-05-27T17:22:49.0061572Z Files left to evaluate 4.,
+2016-05-27T17:22:49.0071573Z Files created without upload 0,
+2016-05-27T17:22:49.0071573Z Files uploaded 0
+2016-05-27T17:22:49.0081570Z Files left to process 4
+2016-05-27T17:22:49.0081570Z ---------------------------
+2016-05-27T17:22:51.0128051Z Created 0 files without uploading content. Total files processed 4
+2016-05-27T17:22:51.0183842Z Uploaded artifact 'C:\a\1\a' to container folder 'drop' of build 2.
+2016-05-27T17:22:51.2320173Z Associated artifact 2 with build 2

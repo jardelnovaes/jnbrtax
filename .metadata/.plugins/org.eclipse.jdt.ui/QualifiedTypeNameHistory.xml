@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="org.springframework.security.access.AccessDeniedException"/>
+<fullyQualifiedTypeName name="br.com.jardelnovaes.taxbr.controllers.utils.AppControllerUtils"/>
+<fullyQualifiedTypeName name="org.springframework.web.servlet.ModelAndView"/>
+<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestParam"/>
+<fullyQualifiedTypeName name="javax.persistence.MapsId"/>
+<fullyQualifiedTypeName name="java.lang.Integer"/>
+<fullyQualifiedTypeName name="br.com.jardelnovaes.taxbr.models.TaxRulePISCOFINS"/>
+<fullyQualifiedTypeName name="br.com.jardelnovaes.taxbr.models.TaxRuleICMS"/>
+<fullyQualifiedTypeName name="br.com.jardelnovaes.taxbr.models.ICMSCST"/>
+<fullyQualifiedTypeName name="br.com.jardelnovaes.taxbr.services.TaxRuleService"/>
+<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.ModelAttribute"/>
+<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestBody"/>
+<fullyQualifiedTypeName name="br.com.jardelnovaes.taxbr.models.AddressState"/>
+<fullyQualifiedTypeName name="br.com.jardelnovaes.taxbr.models.TransactionType"/>
+<fullyQualifiedTypeName name="br.com.jardelnovaes.taxbr.models.Operation"/>
+<fullyQualifiedTypeName name="br.com.jardelnovaes.taxbr.models.Company"/>
+<fullyQualifiedTypeName name="antlr.collections.List"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="javax.persistence.criteria.Predicate"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="com.fasterxml.jackson.annotation.JsonIgnoreProperties"/>
+<fullyQualifiedTypeName name="br.com.jardelnovaes.taxbr.models.PersonType"/>
+<fullyQualifiedTypeName name="javax.persistence.criteria.JoinType"/>
+<fullyQualifiedTypeName name="java.net.URL"/>
+<fullyQualifiedTypeName name="java.net.HttpURLConnection"/>
+<fullyQualifiedTypeName name="java.io.InputStreamReader"/>
+<fullyQualifiedTypeName name="java.io.BufferedReader"/>
+<fullyQualifiedTypeName name="org.codehaus.jackson.map.ObjectMapper"/>
+<fullyQualifiedTypeName name="br.com.jardelnovaes.taxbr.models.TaxRule"/>
+</qualifiedTypeNameHistroy>

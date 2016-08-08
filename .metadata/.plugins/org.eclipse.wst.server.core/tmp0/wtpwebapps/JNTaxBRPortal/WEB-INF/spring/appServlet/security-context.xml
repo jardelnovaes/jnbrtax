@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans 
+	xmlns="http://www.springframework.org/schema/security"
+	xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+		http://www.springframework.org/schema/security
+		http://www.springframework.org/schema/security/spring-security-4.0.xsd">
+	
+	<global-method-security secured-annotations="enabled" />
+    
+    <!-- Stateless RESTful service using Basic authentication -->
+	<http pattern="/rest/**" create-session="stateless">
+	  <intercept-url pattern="/**" access="hasRole('ROLE_REST_USER')" />
+	  <http-basic />
+	</http>
+	
+	<!-- Stateless WebService using Basic authentication -->
+	<http pattern="/ws/**" create-session="stateless">
+	  <intercept-url pattern="/**" access="hasRole('ROLE_REST_USER')" />
+	  <http-basic />
+	</http>
+	
+    <http auto-config="true">
+    	<!-- <intercept-url pattern="/resources/**" filters="none"/>  -->
+        <!-- <intercept-url pattern="/**" access="permitAll" />  -->
+        <intercept-url pattern="/" access="permitAll" />
+        <intercept-url pattern="/resources/**" access="permitAll"/>
+        <intercept-url pattern="/general**" access="permitAll" />
+        <intercept-url pattern="/appUsers**" access="permitAll" />
+        <intercept-url pattern="/addressStates/**" access="hasRole('ROLE_ADMIN')" />
+        <intercept-url pattern="/icmsTypes**" access="hasRole('ROLE_ADMIN')" />
+        <intercept-url pattern="/cstICMS**" access="hasRole('ROLE_ADMIN')" />
+        <intercept-url pattern="/cstPisCofins**" access="hasRole('ROLE_ADMIN')" />
+        <intercept-url pattern="/operations**" access="hasRole('ROLE_USER')" />
+        <intercept-url pattern="/personTypes**" access="hasRole('ROLE_USER')" />
+        <intercept-url pattern="/transactionTypes**" access="hasRole('ROLE_USER')" />
+        <intercept-url pattern="/taxRules**" access="hasRole('ROLE_USER')" />
+        <intercept-url pattern="/dba**" access="hasRole('ROLE_ADMIN') and hasRole('DBA')" />
+        <form-login authentication-failure-url="/authFailure" login-page="/login" />        
+        <logout invalidate-session="true" delete-cookies="true" logout-success-url="/login?logout" />
+    </http>
+	<!-- <http pattern="/resources/**" security="none"/>  -->
+	   
+	<authentication-manager>
+	    <authentication-provider>
+	        <password-encoder hash="md5" />
+	        <!-- --> 
+			 <jdbc-user-service id="userDetailsService" 
+				data-source-ref="dataSource"                
+			    users-by-username-query="SELECT Email as USER_NAME, PASSWORD, Active as Enabled FROM APP_AppUsers WHERE Email=?"
+			    authorities-by-username-query="SELECT u.Email as USER_NAME, r.Name as ROLE_NAME FROM APP_AppUsers u 
+			                                   INNER JOIN APP_AppUserRole r ON u.Id=r.UserId WHERE u.Email=?" />
+	         
+	        
+	        <!-- david:newyork | alex:newjersey -->
+	        <!-- 
+	        <user-service>	        	 
+	            <user name="david" password="369389d19e24204b4927e30dd7c39efc" authorities="ROLE_ADMIN" />	            
+	            <user name="alex" password="847c6f184197dc1545d9891d42814a7d" authorities="ROLE_USER" />	            
+	        </user-service>
+			-->
+	    </authentication-provider>
+    </authentication-manager>
+</beans:beans>

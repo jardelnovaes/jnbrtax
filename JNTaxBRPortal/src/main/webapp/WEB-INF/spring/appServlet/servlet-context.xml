@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/mvc"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:util="http://www.springframework.org/schema/util"	
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.0.xsd">
+    
+	<!-- DispatcherServlet Context: defines this servlet's request-processing infrastructure -->
+	
+	<!-- Enables the Spring MVC @Controller programming model -->
+	<annotation-driven />
+    
+	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
+	<resources mapping="/resources/**" location="/resources/" />
+
+	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
+	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<beans:property name="prefix" value="/WEB-INF/views/" />
+		<beans:property name="suffix" value=".jsp" />
+	</beans:bean>
+	
+	<!-- Properties -->	
+	<!-- 
+	<util:properties id="appModelsProperties" location="classpath:app.models.properties" />
+	<beans:bean id="appModelsProperties" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"> 
+    	<beans:property name="location" value="classpath:app.models.properties" />
+ 	</beans:bean>  
+ 	-->
+ 	
+ 	<!--  Internatinalization  -->	
+	<beans:bean id="localeResolver" class="org.springframework.web.servlet.i18n.SessionLocaleResolver">
+    	<beans:property name="defaultLocale" value="pt_BR" />
+	</beans:bean>
+	<beans:bean id="localeChangeInterceptor" class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
+	    <beans:property name="paramName" value="lang" />
+	</beans:bean>	 
+	<!-- <bean class="org.springframework.web.servlet.i18n.CookieLocaleResolver" id="localeResolver" p:cookieName="locale"/> -->
+	<beans:bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping">
+	    <beans:property name="interceptors">
+	        <beans:list>
+	            <beans:ref bean="localeChangeInterceptor" />
+	        </beans:list>
+	    </beans:property>
+	</beans:bean>
+	<beans:bean id="appModelsSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+        <beans:property name="basename" value="classpath:appModels" />
+    </beans:bean>
+    
+    <!-- Configure to plugin JSON / XML as request and response in method handler -->
+    <beans:bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
+        <beans:property name="messageConverters">
+            <beans:list>
+                <beans:ref bean="jsonMessageConverter"/>
+                <beans:ref bean="xmlMessageConverter"/>
+            </beans:list>
+        </beans:property>
+    </beans:bean>     
+    <!-- Configure bean to convert JSON to POJO and vice versa -->
+    <beans:bean id="jsonMessageConverter" class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter"></beans:bean>
+    <!-- Configure bean to convert XML to POJO and vice versa -->
+    <beans:bean id="xmlMessageConverter" class="org.springframework.http.converter.xml.Jaxb2RootElementHttpMessageConverter"></beans:bean>
+    
+    <!-- Scan controllers -->
+	<context:component-scan base-package="br.com.jardelnovaes.taxbr.controllers" />
+	
+	<!-- Cache -->
+	<beans:bean id="cacheManager" class="org.springframework.cache.ehcache.EhCacheCacheManager">
+		<beans:property name="cacheManager" ref="ehcache"/>
+	</beans:bean>
+	<beans:bean id="ehcache" class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean">
+		<beans:property name="configLocation" value="classpath:ehcache.xml"/>
+		<beans:property name="shared" value="true"/>
+	</beans:bean>
+	
+	<!-- Datasources => see datasource-context.xml -->
+	     
+    <!-- Hibernate 4 SessionFactory Bean definition -->
+    <beans:bean id="sessionFactory"
+        class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+        <beans:property name="dataSource" ref="dataSource" />
+        <beans:property name="annotatedClasses">
+            <beans:list>
+                <beans:value>br.com.jardelnovaes.taxbr.models.AppUser</beans:value>
+                <beans:value>br.com.jardelnovaes.taxbr.models.Company</beans:value>
+            </beans:list>
+        </beans:property>
+        <beans:property name="hibernateProperties">
+            <beans:props>
+            	<beans:prop key="hibernate.show_sql">true</beans:prop>
+                <beans:prop key="hibernate.hbm2ddl.auto">update</beans:prop>
+                
+            	<!-- ORACLE -->
+                <!-- <beans:prop key="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</beans:prop>  -->
+                
+                <!-- SQL SERVER -->
+                <beans:prop key="hibernate.dialect">org.hibernate.dialect.SQLServer2008Dialect</beans:prop>
+                
+                <beans:prop key="javax.persistence.sharedCache.mode">ENABLE_SELECTIVE</beans:prop>   
+                <beans:prop key="br.com.jardelnovaes.taxbr.persitence.cache.queryHint">org.hibernate.cacheable</beans:prop>
+                <beans:prop key="br.com.jardelnovaes.taxbr.persitence.cache.queryRegionHint">org.hibernate.cacheRegion</beans:prop>     	         	
+				<beans:prop key="hibernate.id.new_generator_mappings">true</beans:prop>
+				<beans:prop key="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory</beans:prop>
+				<beans:prop key="hibernate.cache.provider_class">org.hibernate.cache.EhCacheProvider</beans:prop>			
+				<beans:prop key="hibernate.cache.use_second_level_cache">true</beans:prop>  			
+				<beans:prop key="hibernate.cache.use_query_cache">true</beans:prop>                
+            </beans:props>
+        </beans:property>
+    </beans:bean>
+    
+    <!-- JPA EntitManagerfactory Bean definition -->
+    <beans:bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+  		<beans:property name="dataSource" ref="dataSource" />
+  		<beans:property name="packagesToScan" value="br.com.jardelnovaes.taxbr.models" />
+  		<beans:property name="jpaVendorAdapter">
+            <beans:bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter" />   
+        </beans:property>    
+        <beans:property name="jpaProperties">
+        <beans:props>
+        	<beans:prop key="javax.persistence.sharedCache.mode">ENABLE_SELECTIVE</beans:prop>  
+        	<beans:prop key="br.com.jardelnovaes.taxbr.persitence.cache.queryHint">org.hibernate.cacheable</beans:prop>
+        	<beans:prop key="br.com.jardelnovaes.taxbr.persitence.cache.queryRegionHint">org.hibernate.cacheRegion</beans:prop>      	         	
+			<beans:prop key="hibernate.show_sql">true</beans:prop>
+			<beans:prop key="hibernate.format_sql">true</beans:prop >
+			<beans:prop key="hibernate.hbm2ddl.auto">update</beans:prop>
+			<beans:prop key="hibernate.id.new_generator_mappings">true</beans:prop>
+			<beans:prop key="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory</beans:prop>
+			<beans:prop key="hibernate.cache.provider_class">org.hibernate.cache.EhCacheProvider</beans:prop>			
+			<beans:prop key="hibernate.cache.use_second_level_cache">true</beans:prop>  			
+			<beans:prop key="hibernate.cache.use_query_cache">true</beans:prop>
+			<!-- <beans:prop key="hibernate.ejb.classcache.br.com.jardelnovaes.springmvc.app01.model.AppUser">read-write</beans:prop> -->  
+			
+			<!--  Não funcionou  -->
+			<!-- <beans:prop key="prefer_sequence_per_entity">true</beans:prop> --> 		
+
+			<!-- ORACLE --> <!--  
+			<beans:prop key="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</beans:prop> 
+			-->
+			
+			<!-- SQL SERVER --> <!-- -->  
+			<beans:prop key="hibernate.dialect">org.hibernate.dialect.SQLServer2008Dialect</beans:prop> 
+			
+        </beans:props>
+      </beans:property>
+            
+  	</beans:bean>
+  	  	    
+    <!-- Hibernate Transaction -->
+    <!--
+    <tx:annotation-driven transaction-manager="transactionManager"/>     
+    <beans:bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+        <beans:property name="sessionFactory" ref="sessionFactory" />
+    </beans:bean>
+    --> 
+    
+    <!-- JPA Transaction -->
+    <!-- 
+    <tx:annotation-driven transaction-manager="transactionManagerJPA"/>
+    <beans:bean id="transactionManagerJPA" class="org.springframework.orm.jpa.JpaTransactionManager">
+        <beans:property name="entityManagerFactory" ref="entityManagerFactory" />
+    </beans:bean>
+	 -->
+	 
+  	<!--  Hibernate DAO  -->
+    <beans:bean id="appUserDAO" class="br.com.jardelnovaes.taxbr.persitence.impl.AppUserDAOImpl">
+       <beans:property name="sessionFactory" ref="sessionFactory" />
+    </beans:bean>
+    
+    <!--  JPA DAO  -->
+    <beans:bean id="appUserDAOJPA" class="br.com.jardelnovaes.taxbr.persitence.impl.AppUserDAOJPAImpl">
+       <beans:property name="entityManagerFactory" ref="entityManagerFactory" />
+    </beans:bean>    
+    <beans:bean id="taxRuleDAOJPA" class="br.com.jardelnovaes.taxbr.persitence.impl.TaxRuleDAOJPAImpl">
+       <beans:property name="entityManagerFactory" ref="entityManagerFactory" />
+    </beans:bean>
+    <beans:bean id="transactionTypeDAOJPA" class="br.com.jardelnovaes.taxbr.persitence.impl.TransactionTypeDAOJPAImpl">
+       <beans:property name="entityManagerFactory" ref="entityManagerFactory" />
+    </beans:bean>
+    <beans:bean id="personTypeDAOJPA" class="br.com.jardelnovaes.taxbr.persitence.impl.PersonTypeDAOJPAImpl">
+       <beans:property name="entityManagerFactory" ref="entityManagerFactory" />
+    </beans:bean>
+    <beans:bean id="addressStateDAOJPA" class="br.com.jardelnovaes.taxbr.persitence.impl.AddressStateDAOJPAImpl">
+       <beans:property name="entityManagerFactory" ref="entityManagerFactory" />
+    </beans:bean>
+    <beans:bean id="operationDAOJPA" class="br.com.jardelnovaes.taxbr.persitence.impl.OperationDAOJPAImpl">
+       <beans:property name="entityManagerFactory" ref="entityManagerFactory" />
+    </beans:bean>
+    <beans:bean id="pisCofinsCSTDAOJPA" class="br.com.jardelnovaes.taxbr.persitence.impl.PISCOFINSCSTDAOJPAImpl">
+       <beans:property name="entityManagerFactory" ref="entityManagerFactory" />
+    </beans:bean>
+    <beans:bean id="icmsCSTDAOJPA" class="br.com.jardelnovaes.taxbr.persitence.impl.ICMSCSTDAOJPAImpl">
+       <beans:property name="entityManagerFactory" ref="entityManagerFactory" />
+    </beans:bean>
+    <beans:bean id="icmsTypeDAOJPA" class="br.com.jardelnovaes.taxbr.persitence.impl.ICMSTypeDAOJPAImpl">
+       <beans:property name="entityManagerFactory" ref="entityManagerFactory" />
+    </beans:bean>
+    <beans:bean id="companyDAOJPA" class="br.com.jardelnovaes.taxbr.persitence.impl.CompanyDAOJPAImpl">
+       <beans:property name="entityManagerFactory" ref="entityManagerFactory" />
+    </beans:bean>
+    
+    <!-- Services  -->
+    <beans:bean id="appUserService" class="br.com.jardelnovaes.taxbr.services.impl.AppUserServiceImpl">
+        <beans:property name="dao" ref="appUserDAOJPA"></beans:property>
+    </beans:bean>
+    <beans:bean id="taxRuleService" class="br.com.jardelnovaes.taxbr.services.impl.TaxRuleServiceImpl">
+        <beans:property name="dao" ref="taxRuleDAOJPA"></beans:property>        
+    </beans:bean>
+    <beans:bean id="transactionTypeService" class="br.com.jardelnovaes.taxbr.services.impl.TransactionTypeServiceImpl">
+        <beans:property name="dao" ref="transactionTypeDAOJPA"></beans:property>
+    </beans:bean>
+    <beans:bean id="personTypeService" class="br.com.jardelnovaes.taxbr.services.impl.PersonTypeServiceImpl">
+        <beans:property name="dao" ref="personTypeDAOJPA"></beans:property>
+    </beans:bean>
+    <beans:bean id="addressStateService" class="br.com.jardelnovaes.taxbr.services.impl.AddressStateServiceImpl">
+        <beans:property name="dao" ref="addressStateDAOJPA"></beans:property>
+    </beans:bean>    
+    <beans:bean id="operationService" class="br.com.jardelnovaes.taxbr.services.impl.OperationServiceImpl">
+        <beans:property name="dao" ref="operationDAOJPA"></beans:property>                
+    </beans:bean> 
+    <beans:bean id="pisCofinsCSTService" class="br.com.jardelnovaes.taxbr.services.impl.PISCOFINSCSTServiceImpl">
+        <beans:property name="dao" ref="pisCofinsCSTDAOJPA"></beans:property>                
+    </beans:bean>   
+    <beans:bean id="icmsCSTService" class="br.com.jardelnovaes.taxbr.services.impl.ICMSCSTServiceImpl">
+        <beans:property name="dao" ref="icmsCSTDAOJPA"></beans:property>                
+    </beans:bean>   
+    <beans:bean id="icmsTypeService" class="br.com.jardelnovaes.taxbr.services.impl.ICMSTypeServiceImpl">
+        <beans:property name="dao" ref="icmsTypeDAOJPA"></beans:property>                
+    </beans:bean>
+    <beans:bean id="companyService" class="br.com.jardelnovaes.taxbr.services.impl.CompanyServiceImpl">
+        <beans:property name="dao" ref="companyDAOJPA"></beans:property>                
+    </beans:bean>  
+	     
+    <!-- Util Components -->
+    <beans:bean id="appControllerUtils" class="br.com.jardelnovaes.taxbr.controllers.utils.AppControllerUtils" />
+</beans:beans>

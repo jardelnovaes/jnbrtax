@@ -1,0 +1,5 @@
+127.0.0.1 - - [15/Jun/2016:16:39:16 -0300] "GET / HTTP/1.1" 404 951
+0:0:0:0:0:0:0:1 - - [15/Jun/2016:16:39:20 -0300] "GET /JNTaxBRPortal/WEB-INF/classes/NOTES.txt HTTP/1.1" 404 949
+0:0:0:0:0:0:0:1 - - [15/Jun/2016:16:42:47 -0300] "GET /JNTaxBRPortal/rest/taxRules/getTaxRule HTTP/1.1" 400 1072
+127.0.0.1 - - [15/Jun/2016:16:50:07 -0300] "GET / HTTP/1.1" 404 951
+0:0:0:0:0:0:0:1 - - [15/Jun/2016:17:00:58 -0300] "GET /JNTaxBRPortal/rest/taxRules/getTaxRule?fromState=SC&toState=PR&transactionType=1 HTTP/1.1" 200 -

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-4.0.xsd">
+
+	<!-- Datasource (ORACLE) -->	
+	<bean id="dataSourceORA" class="org.apache.commons.dbcp.BasicDataSource"
+        destroy-method="close">
+        <!-- driverClassName: oracle.jdbc.driver.OracleDriver  -->
+        <property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
+        <property name="url"
+            value="jdbc:oracle:thin:@//10.200.240.13:1521/msafdw" />
+        <property name="username" value="mastersaf" />
+        <property name="password" value="m4st3r321" />
+    </bean>
+    
+    <!-- Datasource (SQL SERVER)-->	
+    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
+        destroy-method="close">        
+        <property name="driverClassName" value="com.microsoft.sqlserver.jdbc.SQLServerDriver" />
+        <!-- SRV2 -->  
+        <property name="url"
+            value="jdbc:sqlserver://CFBDDES03:61689;databasename=infoDes" />
+        <property name="username" value="marcelo26913" />
+        <property name="password" value="123456" />
+       
+        <!-- HOME -->  <!--
+        <property name="url"
+            value="jdbc:sqlserver://localhost:51744;databaseName=TestDB" />
+        <property name="username" value="sa" />
+        <property name="password" value="furukawa" />
+         -->
+    </bean>
+</beans>

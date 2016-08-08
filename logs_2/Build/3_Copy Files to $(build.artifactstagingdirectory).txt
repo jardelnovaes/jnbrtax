@@ -1,0 +1,41 @@
+2016-05-27T17:22:47.4539266Z Set workingFolder to default: C:\LR\MMS\Services\Mms\TaskAgentProvisioner\Tools\agents\1.99.0\tasks\CopyFiles\1.0.15
+2016-05-27T17:22:48.0144065Z ##[debug]loading inputs and endpoints
+2016-05-27T17:22:48.0164070Z ##[debug]loading ENDPOINT_AUTH_$/
+2016-05-27T17:22:48.0184055Z ##[debug]loading ENDPOINT_AUTH_SYSTEMVSSCONNECTION
+2016-05-27T17:22:48.0194058Z ##[debug]loading INPUT_CLEANTARGETFOLDER
+2016-05-27T17:22:48.0194058Z ##[debug]loading INPUT_CONTENTS
+2016-05-27T17:22:48.0204060Z ##[debug]loading INPUT_OVERWRITE
+2016-05-27T17:22:48.0204060Z ##[debug]loading INPUT_SOURCEFOLDER
+2016-05-27T17:22:48.0214051Z ##[debug]loading INPUT_TARGETFOLDER
+2016-05-27T17:22:48.0224063Z ##[debug]loaded 7
+2016-05-27T17:22:48.0224063Z ##[debug]check path : C:\LR\MMS\Services\Mms\TaskAgentProvisioner\Tools\agents\1.99.0\tasks\CopyFiles\1.0.15\task.json
+2016-05-27T17:22:48.0224063Z ##[debug]set resource file to: C:\LR\MMS\Services\Mms\TaskAgentProvisioner\Tools\agents\1.99.0\tasks\CopyFiles\1.0.15\task.json
+2016-05-27T17:22:48.0234065Z ##[debug]system.culture=en-US
+2016-05-27T17:22:48.0274067Z ##[debug]Contents=**/*.jar
+2016-05-27T17:22:48.0274067Z ##[debug]SourceFolder=C:\a\1\s
+2016-05-27T17:22:48.0284066Z ##[debug]check path : C:\a\1\s
+2016-05-27T17:22:48.0284066Z ##[debug]TargetFolder=C:\a\1\a
+2016-05-27T17:22:48.0294067Z ##[debug]CleanTargetFolder=false
+2016-05-27T17:22:48.0294067Z ##[debug]OverWrite=false
+2016-05-27T17:22:48.0304067Z ##[debug]include content pattern: **/*.jar
+2016-05-27T17:22:48.1154062Z ##[debug]find C:\a\1\s
+2016-05-27T17:22:48.1154062Z ##[debug]563 matches.
+2016-05-27T17:22:48.1414049Z ##[debug]allFiles contains 435 files
+2016-05-27T17:22:48.1414049Z ##[debug]Include matching C:\a\1\s\**\*.jar
+2016-05-27T17:22:48.1554054Z ##[debug]Include matched 4 files
+2016-05-27T17:22:48.1594047Z found 4 files
+2016-05-27T17:22:48.1604061Z ##[debug]file:C:/a/1/s/JNTaxBRPersistente/target/JNTaxBRPersistente-0.0.1-SNAPSHOT.jar will be copied.
+2016-05-27T17:22:48.1604061Z ##[debug]file:C:/a/1/s/JNTaxBRPortal/src/main/webapp/WEB-INF/lib/ojdbc6.jar will be copied.
+2016-05-27T17:22:48.1614060Z ##[debug]file:C:/a/1/s/JNTaxBRPortal/src/main/webapp/WEB-INF/lib/sqljdbc4-3.0.jar will be copied.
+2016-05-27T17:22:48.1614060Z ##[debug]file:C:/a/1/s/JNTaxBRServices/target/JNTaxBRServices-0.0.1-SNAPSHOT.jar will be copied.
+2016-05-27T17:22:48.1624063Z ##[debug]path exists: C:\a\1\a
+2016-05-27T17:22:48.1624063Z ##[debug]Creating folder C:\a\1\a\JNTaxBRPersistente\target
+2016-05-27T17:22:48.1634058Z ##[debug]creating path: C:\a\1\a\JNTaxBRPersistente\target
+2016-05-27T17:22:48.1634058Z Copying C:/a/1/s/JNTaxBRPersistente/target/JNTaxBRPersistente-0.0.1-SNAPSHOT.jar to C:\a\1\a\JNTaxBRPersistente\target\JNTaxBRPersistente-0.0.1-SNAPSHOT.jar
+2016-05-27T17:22:48.1654042Z ##[debug]Creating folder C:\a\1\a\JNTaxBRPortal\src\main\webapp\WEB-INF\lib
+2016-05-27T17:22:48.1664060Z ##[debug]creating path: C:\a\1\a\JNTaxBRPortal\src\main\webapp\WEB-INF\lib
+2016-05-27T17:22:48.1674081Z Copying C:/a/1/s/JNTaxBRPortal/src/main/webapp/WEB-INF/lib/ojdbc6.jar to C:\a\1\a\JNTaxBRPortal\src\main\webapp\WEB-INF\lib\ojdbc6.jar
+2016-05-27T17:22:48.1724052Z Copying C:/a/1/s/JNTaxBRPortal/src/main/webapp/WEB-INF/lib/sqljdbc4-3.0.jar to C:\a\1\a\JNTaxBRPortal\src\main\webapp\WEB-INF\lib\sqljdbc4-3.0.jar
+2016-05-27T17:22:48.1734051Z ##[debug]Creating folder C:\a\1\a\JNTaxBRServices\target
+2016-05-27T17:22:48.1734051Z ##[debug]creating path: C:\a\1\a\JNTaxBRServices\target
+2016-05-27T17:22:48.1744062Z Copying C:/a/1/s/JNTaxBRServices/target/JNTaxBRServices-0.0.1-SNAPSHOT.jar to C:\a\1\a\JNTaxBRServices\target\JNTaxBRServices-0.0.1-SNAPSHOT.jar

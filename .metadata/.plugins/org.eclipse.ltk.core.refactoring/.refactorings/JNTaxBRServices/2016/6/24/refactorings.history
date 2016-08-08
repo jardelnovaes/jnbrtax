@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;OperationService.java&apos; to &apos;br.com.jardelnovaes.taxbr.services.OperationService.java&apos;&#x0D;&#x0A;- Original project: &apos;JNTaxBRServices&apos;&#x0D;&#x0A;- Destination element: &apos;br.com.jardelnovaes.taxbr.services.OperationService.java&apos;&#x0D;&#x0A;- Original element: &apos;br.com.jardelnovaes.taxbr.services.OperationService.java&apos;" description="Copy compilation unit" destination="/src\/main\/java&lt;br.com.jardelnovaes.taxbr.services{OperationService.java" element1="/src\/main\/java&lt;br.com.jardelnovaes.taxbr.services{OperationService.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1465579653837" units="1" version="1.0"/>
+</session>

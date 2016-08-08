@@ -1,0 +1,7 @@
+127.0.0.1 - - [25/May/2016:17:21:51 -0300] "GET / HTTP/1.1" 404 951
+0:0:0:0:0:0:0:1 - - [25/May/2016:17:22:03 -0300] "GET /JNTaxBRPortal/ HTTP/1.1" 200 6406
+0:0:0:0:0:0:0:1 - - [25/May/2016:17:22:03 -0300] "GET /JNTaxBRPortal/resources/bootstrap/css/bootstrap-theme.min.css HTTP/1.1" 200 23409
+0:0:0:0:0:0:0:1 - - [25/May/2016:17:22:03 -0300] "GET /JNTaxBRPortal/resources/bootstrap/css/bootstrap.min.css HTTP/1.1" 200 121270
+0:0:0:0:0:0:0:1 - - [25/May/2016:17:22:03 -0300] "GET /JNTaxBRPortal/resources/bootstrap/js/bootstrap.min.js HTTP/1.1" 200 36868
+0:0:0:0:0:0:0:1 - - [25/May/2016:17:22:03 -0300] "GET /JNTaxBRPortal/resources/css/site.css HTTP/1.1" 200 574
+0:0:0:0:0:0:0:1 - - [25/May/2016:17:22:05 -0300] "GET /JNTaxBRPortal/resources/bootstrap/fonts/glyphicons-halflings-regular.eot? HTTP/1.1" 200 20127
