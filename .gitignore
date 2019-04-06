@@ -1,5 +1,8 @@
-/target/
+target/
 !.mvn/wrapper/maven-wrapper.jar
+.metadata
+.recommenders
+$tf/
 
 ### STS ###
 .apt_generated
