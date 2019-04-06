@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Copy element &apos;about.jsp&apos; to &apos;about.jsp&apos;&#x0D;&#x0A;- Original project: &apos;JNTaxBRPortal&apos;&#x0D;&#x0A;- Destination element: &apos;about.jsp&apos;&#x0D;&#x0A;- Original element: &apos;about.jsp&apos;" description="Copy file" element1="src/main/webapp/WEB-INF/views/general/about.jsp" files="1" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1464641015744" target="/JNTaxBRPortal/src/main/webapp/WEB-INF/views/general/about.jsp" units="0" version="1.0"/>
-</session>

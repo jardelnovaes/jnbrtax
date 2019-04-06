@@ -1,5 +1,0 @@
-#Tomcat publish data
-#Thu Aug 04 08:38:53 BRT 2016
-org.eclipse.jst.jee.server\:/binary\:C\:\\Users\\jardel37858\\.m2\\repository\\org\\springframework\\spring-web\\4.2.5.RELEASE\\spring-web-4.2.5.RELEASE.jar=WEB-INF/lib/spring-web-4.2.5.RELEASE.jar
-org.eclipse.jst.j2ee.server\:JNTaxBRServices=WEB-INF/lib/JNTaxBRServices-0.0.1-SNAPSHOT.jar
-org.eclipse.jst.j2ee.server\:JNTaxBRPersistente=WEB-INF/lib/JNTaxBRPersistente-0.0.1-SNAPSHOT.jar

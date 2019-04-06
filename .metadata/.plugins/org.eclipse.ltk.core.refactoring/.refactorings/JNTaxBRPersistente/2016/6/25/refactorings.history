@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Rename method &apos;br.com.jardelnovaes.taxbr.persitence.DAOCriteria.joinEqual(...)&apos; to &apos;joinWithEqual&apos;&#x0D;&#x0A;- Original project: &apos;JNTaxBRPersistente&apos;&#x0D;&#x0A;- Original element: &apos;br.com.jardelnovaes.taxbr.persitence.DAOCriteria.joinEqual(...)&apos;&#x0D;&#x0A;- Renamed element: &apos;br.com.jardelnovaes.taxbr.persitence.DAOCriteria.joinWithEqual(...)&apos;&#x0D;&#x0A;- Update references to refactored element" delegate="false" deprecate="false" description="Rename method &apos;joinEqual&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.method" input="/src\/main\/java&lt;br.com.jardelnovaes.taxbr.persitence{DAOCriteria.java[DAOCriteria~joinEqual~QJoin\&lt;QT;QTJoin;&gt;;~QString;~QObject;" name="joinWithEqual" references="true" stamp="1466193411541" version="1.0"/>
-</session>
