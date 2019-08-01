@@ -15,7 +15,7 @@
 		<log4j-version>1.2.15</log4j-version>
 		<com.oracle.ojdbc-version>12.1.0</com.oracle.ojdbc-version>
 		<hibernate.version>4.3.5.Final</hibernate.version>
-		<jackson.version>2.9.9</jackson.version>		
+		<jackson.version>2.10.0.pr1</jackson.version>		
 		<jntaxbr.services.version>0.0.1-SNAPSHOT</jntaxbr.services.version>
 		<jntaxbr.persistence.version>0.0.1-SNAPSHOT</jntaxbr.persistence.version>
 	</properties>
