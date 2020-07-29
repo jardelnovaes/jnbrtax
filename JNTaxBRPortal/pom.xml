@@ -1,11 +1,20 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	
+	<parent>
+	  <groupId>br.com.jardelnovaes.taxbr</groupId>
+	  <artifactId>JNTaxBR</artifactId>
+	  <version>0.0.1-SNAPSHOT</version>
+	  <relativePath>../pom.xml</relativePath>
+	</parent>
+	
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>br.com.jardelnovaes.taxbr</groupId>
 	<artifactId>JNTaxBRPortal</artifactId>
 	<name>JNTaxBRPortal</name>
 	<packaging>war</packaging>
-	<version>1.0.0-BUILD-SNAPSHOT</version>
+	<version>0.0.1-SNAPSHOT</version>
+	
 	<properties>
 		<java-version>1.6</java-version>
 		<org.springframework-version>4.2.5.RELEASE</org.springframework-version>
@@ -15,9 +24,6 @@
 		<log4j-version>1.2.15</log4j-version>
 		<com.oracle.ojdbc-version>12.1.0</com.oracle.ojdbc-version>
 		<hibernate.version>4.3.5.Final</hibernate.version>
-		<jackson.version>2.10.3</jackson.version>		
-		<jntaxbr.services.version>0.0.1-SNAPSHOT</jntaxbr.services.version>
-		<jntaxbr.persistence.version>0.0.1-SNAPSHOT</jntaxbr.persistence.version>
 	</properties>
 	<dependencies>
 		<!-- Spring -->
@@ -199,13 +205,13 @@
         <dependency>
         	<groupId>br.com.jardelnovaes.taxbr</groupId>
         	<artifactId>JNTaxBRServices</artifactId>
-        	<version>${jntaxbr.services.version}</version>
+        	<version>${project.version}</version>
         	<scope>compile</scope>
         </dependency>
         <dependency>
 	  		<groupId>br.com.jardelnovaes.brtax</groupId>
 	  		<artifactId>JNTaxBRPersistente</artifactId>
-	  		<version>${jntaxbr.persistence.version}</version>
+	  		<version>${project.version}</version>
   		</dependency>
 	</dependencies>
     <build>

@@ -293,3 +293,51 @@ JOIN    APP_AppLogEntityId e    on e.Id = l.EntityId
 ORDER BY l.Id DESC;
 
 -------------------------------------------------------------------------------------
+--- MYSQL 
+
+-- Reset PKs
+update hibernate_sequence set next_val = 1;
+update seq_pk_appentitylog set next_val = 1;
+update seq_pk_applogentityid set next_val = 1;
+update seq_pk_appuserrole set next_val = 1;
+update seq_pk_appusers set next_val = 1;
+update seq_pk_company set next_val = 1;
+update seq_pk_icmstype set next_val = 1;
+update seq_pk_operation set next_val = 1;
+update seq_pk_persontype set next_val = 1;
+update seq_pk_taxrule set next_val = 1;
+update seq_pk_transactiontype set next_val = 1;
+
+-- TaxRule
+INSERT INTO APP_TaxRule (Id, CEST, ExNCM, NCM, IsActive, ItemId, FromStateId, OperationId, PersonTypeId, ToStateId, TransactionTypeId, CompanyId) VALUES 
+(1, '', 0, '', 1, 0, 'AC', NULL, NULL, 'AC', NULL, 2), 
+(2, '', 0, '', 1, 0, 'AL', NULL, NULL, 'AL', NULL, 2), 
+(3, '', 0, '', 1, 0, 'AM', NULL, NULL, 'AM', NULL, 2), 
+(4, '', 0, '', 1, 0, 'AP', NULL, NULL, 'AP', NULL, 2), 
+(5, '', 0, '', 1, 0, 'BA', NULL, NULL, 'BA', NULL, 2), 
+(6, '', 0, '', 1, 0, 'BR', NULL, NULL, 'BR', NULL, 2), 
+(7, '', 0, '', 1, 0, 'CE', NULL, NULL, 'CE', NULL, 2), 
+(8, '', 0, '', 1, 0, 'DF', NULL, NULL, 'DF', NULL, 2), 
+(9, '', 0, '', 1, 0, 'ES', NULL, NULL, 'ES', NULL, 2), 
+(10, '', 0, '', 1, 0, 'EX', NULL, NULL, 'EX', NULL, 2), 
+(11, '', 0, '', 1, 0, 'GO', NULL, NULL, 'GO', NULL, 2), 
+(12, '', 0, '', 1, 0, 'MA', NULL, NULL, 'MA', NULL, 2), 
+(13, '', 0, '', 1, 0, 'MG', NULL, NULL, 'MG', NULL, 2), 
+(14, '', 0, '', 1, 0, 'MS', NULL, NULL, 'MS', NULL, 2), 
+(15, '', 0, '', 1, 0, 'MT', NULL, NULL, 'MT', NULL, 2), 
+(16, '', 0, '', 1, 0, 'PA', NULL, NULL, 'PA', NULL, 2), 
+(17, '', 0, '', 1, 0, 'PB', NULL, NULL, 'PB', NULL, 2), 
+(18, '', 0, '', 1, 0, 'PE', NULL, NULL, 'PE', NULL, 2), 
+(19, '', 0, '', 1, 0, 'PI', NULL, NULL, 'PI', NULL, 2), 
+(20, '', 0, '', 1, 0, 'PR', NULL, NULL, 'PR', NULL, 2), 
+(21, '', 0, '', 1, 0, 'RJ', NULL, NULL, 'RJ', NULL, 2), 
+(22, '', 0, '', 1, 0, 'RN', NULL, NULL, 'RN', NULL, 2), 
+(23, '', 0, '', 1, 0, 'RO', NULL, NULL, 'RO', NULL, 2), 
+(24, '', 0, '', 1, 0, 'RR', NULL, NULL, 'RR', NULL, 2), 
+(25, '', 0, '', 1, 0, 'RS', NULL, NULL, 'RS', NULL, 2), 
+(26, '', 0, '', 1, 0, 'SC', NULL, NULL, 'SC', NULL, 2), 
+(27, '', 0, '', 1, 0, 'SE', NULL, NULL, 'SE', NULL, 2), 
+(28, '', 0, '', 1, 0, 'SP', NULL, NULL, 'SP', NULL, 2), 
+(29, '', 0, '', 1, 0, 'TO', NULL, NULL, 'TO', NULL, 2);
+update SEQ_PK_TaxRule set next_val = (select MAX(id) +1 from APP_TaxRule);
+-------------------------------------------------------------------------------------
