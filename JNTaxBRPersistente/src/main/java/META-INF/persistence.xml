@@ -26,9 +26,9 @@
 		<properties>
 			<property name="javax.persistence.sharedCache.mode" value="ENABLE_SELECTIVE"/>
 			<property name="javax.persistence.jdbc.url" value="jdbc:sqlserver://localhost:51744;databaseName=TestDB"/>
-			<property name="javax.persistence.jdbc.user" value="sa"/>
+			<property name="javax.persistence.jdbc.user" value="user"/>
 			<!-- TODO Salvar senha de forma criptografada? -->
-			<property name="javax.persistence.jdbc.password" value="furukawa"/>
+			<property name="javax.persistence.jdbc.password" value="p@$$"/>
 			<property name="javax.persistence.jdbc.driver" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"/>
 		
 			<!-- Hibernate props  -->

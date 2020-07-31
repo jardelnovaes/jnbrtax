@@ -209,14 +209,14 @@ public class InstallController {
 			getEntityManager().clear();
 						
 			companies = null;
-			Company co = getOrCreateCompany("MASTER");	
+			Company coMaster = getOrCreateCompany("MASTER");	
 			msg += "<br/>Companies installed";
 			
 			AppUser usr = userSrv.getByName("master@test.com");
 			if(usr == null){
 				usr = new AppUser();
 				usr.setActive(true);
-				usr.setCompany(co);
+				usr.setCompany(coMaster);
 				usr.setConfirmPassword("master");
 				usr.setPassword("master");
 				usr.setEmail("master@test.com");
@@ -232,15 +232,15 @@ public class InstallController {
 			}
 			this.user = usr;
 			msg += "<br/>Users installed";
-			co = getOrCreateCompany("EMP_LIXO");			
+			Company co = getOrCreateCompany("EMP_LIXO");			
 			addTransType(co, "TST:Vendas", true);
 			addTransType(co, "TST:Compra", false);			
 			msg += "<br/>Transaction type (DRAFT) installed";
 			
-			co = getOrCreateCompany("MASTER");
-			addTransType(co, "Vendas", true);
-			addTransType(co, "Compra para Revenda", false);
-			addTransType(co, "Devolução de Venda", false);			
+			//co = getOrCreateCompany("MASTER");
+			addTransType(coMaster, "Vendas", true);
+			addTransType(coMaster, "Compra para Revenda", false);
+			addTransType(coMaster, "Devolução de Venda", false);			
 			msg += "<br/>Transaction type (MASTER) installed";
 			
 			

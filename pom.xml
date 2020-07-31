@@ -11,8 +11,10 @@
   <properties>
   	<!-- TODO Rever -->
 	<java-version>1.6</java-version>
+	<!--<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>-->
+	
 	<jackson.version>2.10.3</jackson.version>
-	<hibernate.version>4.3.5.Final</hibernate.version>
+	<hibernate.version>5.3.17.Final</hibernate.version>
   	<hsqldb.version>2.2.4</hsqldb.version>  	
   	<sqlserver.version>4.0</sqlserver.version>
   	<com.oracle.ojdbc-version>12.1.0</com.oracle.ojdbc-version>

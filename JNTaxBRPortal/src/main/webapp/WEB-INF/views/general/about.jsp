@@ -11,7 +11,7 @@
 	  		<div class="panel-heading"><label>Sobre o MVC App</label></div>			
 			<div class="msgPanelContent">
 				<p>Este é um aplicativo de testes para avaliação do Spring MVC.</p>
-				<p>Nele está sendo avaliado acesso aos dados por meio de JPA/Hibernate e Hibernate direto, além dos bancos de dados Oracle e SqlServer.</p>
+				<p>Nele está sendo avaliado acesso aos dados por meio de JPA/Hibernate e Hibernate direto, além dos bancos de dados Mysql 8, Oracle e SqlServer 2008+.</p>
 			</div>
 		</div>
 	</div>

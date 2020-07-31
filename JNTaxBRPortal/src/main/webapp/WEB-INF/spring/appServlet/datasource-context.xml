@@ -4,32 +4,37 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
 	http://www.springframework.org/schema/beans/spring-beans-4.0.xsd">
 
+<!-- Datasource (MYSQL) -->	
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
+        destroy-method="close">
+        <!-- driverClassName: oracle.jdbc.driver.OracleDriver  -->
+        <property name="driverClassName" value="com.mysql.cj.jdbc.Driver" />
+        <property name="url"
+            value="jdbc:mysql://localhost/jntaxbr?serverTimezone=America/Sao_Paulo" />
+        <property name="username" value="root" />
+        <property name="password" value="root" />
+    </bean>
+    
+	
 	<!-- Datasource (ORACLE) -->	
 	<bean id="dataSourceORA" class="org.apache.commons.dbcp.BasicDataSource"
         destroy-method="close">
         <!-- driverClassName: oracle.jdbc.driver.OracleDriver  -->
         <property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
         <property name="url"
-            value="jdbc:oracle:thin:@//10.200.240.13:1521/msafdw" />
-        <property name="username" value="mastersaf" />
-        <property name="password" value="m4st3r321" />
+            value="jdbc:oracle:thin:@//10.200.200.200:1521/schemaName" />
+        <property name="username" value="user" />
+        <property name="password" value="p@$$" />
     </bean>
     
     <!-- Datasource (SQL SERVER)-->	
-    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
+    <bean id="dataSourceSQL" class="org.apache.commons.dbcp.BasicDataSource"
         destroy-method="close">        
         <property name="driverClassName" value="com.microsoft.sqlserver.jdbc.SQLServerDriver" />
-        <!-- SRV2 -->  
-        <property name="url"
-            value="jdbc:sqlserver://CFBDDES03:61689;databasename=infoDes" />
-        <property name="username" value="marcelo26913" />
-        <property name="password" value="123456" />
-       
-        <!-- HOME -->  <!--
+        <!-- HOME -->  
         <property name="url"
             value="jdbc:sqlserver://localhost:51744;databaseName=TestDB" />
-        <property name="username" value="sa" />
-        <property name="password" value="furukawa" />
-         -->
+        <property name="username" value="user" />
+        <property name="password" value="p@$$" />
     </bean>
 </beans>

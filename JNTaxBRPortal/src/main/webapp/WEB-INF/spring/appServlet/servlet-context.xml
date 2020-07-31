@@ -81,8 +81,9 @@
 	<!-- Datasources => see datasource-context.xml -->
 	     
     <!-- Hibernate 4 SessionFactory Bean definition -->
+	<!--
     <beans:bean id="sessionFactory"
-        class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+        class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
         <beans:property name="dataSource" ref="dataSource" />
         <beans:property name="annotatedClasses">
             <beans:list>
@@ -94,13 +95,17 @@
             <beans:props>
             	<beans:prop key="hibernate.show_sql">true</beans:prop>
                 <beans:prop key="hibernate.hbm2ddl.auto">update</beans:prop>
-                
+                -->
+				<!-- MYSQL -->
+                <!--
+				<beans:prop key="hibernate.dialect">org.hibernate.dialect.MySQL8Dialect</beans:prop>
+				-->
             	<!-- ORACLE -->
                 <!-- <beans:prop key="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</beans:prop>  -->
                 
                 <!-- SQL SERVER -->
-                <beans:prop key="hibernate.dialect">org.hibernate.dialect.SQLServer2008Dialect</beans:prop>
-                
+                <!--<beans:prop key="hibernate.dialect">org.hibernate.dialect.SQLServer2008Dialect</beans:prop> -->
+                <!--
                 <beans:prop key="javax.persistence.sharedCache.mode">ENABLE_SELECTIVE</beans:prop>   
                 <beans:prop key="br.com.jardelnovaes.taxbr.persitence.cache.queryHint">org.hibernate.cacheable</beans:prop>
                 <beans:prop key="br.com.jardelnovaes.taxbr.persitence.cache.queryRegionHint">org.hibernate.cacheRegion</beans:prop>     	         	
@@ -112,6 +117,7 @@
             </beans:props>
         </beans:property>
     </beans:bean>
+	-->
     
     <!-- JPA EntitManagerfactory Bean definition -->
     <beans:bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
@@ -138,12 +144,16 @@
 			<!--  Não funcionou  -->
 			<!-- <beans:prop key="prefer_sequence_per_entity">true</beans:prop> --> 		
 
+			<!-- MYSQL --> <!-- -->
+			<beans:prop key="hibernate.dialect">org.hibernate.dialect.MySQL8Dialect</beans:prop> 
+
 			<!-- ORACLE --> <!--  
 			<beans:prop key="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</beans:prop> 
 			-->
 			
-			<!-- SQL SERVER --> <!-- -->  
+			<!-- SQL SERVER --> <!-- 
 			<beans:prop key="hibernate.dialect">org.hibernate.dialect.SQLServer2008Dialect</beans:prop> 
+			-->  
 			
         </beans:props>
       </beans:property>
@@ -158,18 +168,20 @@
     </beans:bean>
     --> 
     
-    <!-- JPA Transaction -->
-    <!-- 
+	<!-- JPA Transaction -->
+    <!-- -->
     <tx:annotation-driven transaction-manager="transactionManagerJPA"/>
     <beans:bean id="transactionManagerJPA" class="org.springframework.orm.jpa.JpaTransactionManager">
         <beans:property name="entityManagerFactory" ref="entityManagerFactory" />
     </beans:bean>
-	 -->
 	 
   	<!--  Hibernate DAO  -->
+	<!--
     <beans:bean id="appUserDAO" class="br.com.jardelnovaes.taxbr.persitence.impl.AppUserDAOImpl">
        <beans:property name="sessionFactory" ref="sessionFactory" />
     </beans:bean>
+    -->
+	
     
     <!--  JPA DAO  -->
     <beans:bean id="appUserDAOJPA" class="br.com.jardelnovaes.taxbr.persitence.impl.AppUserDAOJPAImpl">
