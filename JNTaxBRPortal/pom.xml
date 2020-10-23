@@ -232,7 +232,9 @@
                     <compilerArgument>-Xlint:all</compilerArgument>
                     <showWarnings>true</showWarnings>
                     <showDeprecation>true</showDeprecation>
+					<!--
                     <webappDirectory>/deploy</webappDirectory>
+                    -->
                 </configuration>
             </plugin>
             <plugin>
