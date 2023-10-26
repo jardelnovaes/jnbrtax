@@ -56,9 +56,7 @@ public class AppControllerUtils {
 		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		if (principal instanceof User) {
 			name = ((User)principal).getUsername();
-		}
-		else
-		{
+		} else {
 			throw new AccessDeniedException("Access denied"); 
 		}
 	    //Master  

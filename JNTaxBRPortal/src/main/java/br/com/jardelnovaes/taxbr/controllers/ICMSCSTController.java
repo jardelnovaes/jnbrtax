@@ -101,7 +101,7 @@ public class ICMSCSTController {
 	
 	private void loadViewParameters(Model model, ViewPageActionsEnum pageAction, boolean idIsEditable) throws Exception{
 		GenericViewsParameters viewParams = new GenericViewsParameters(
-				"Cadastro de CST de PIS/COFINS", "ICMSCST", pageAction, baseURL, "CST"); 
+				"Cadastro de CST de ICMS", "ICMSCST", pageAction, baseURL, "CST"); 
 		
 		viewParams.setEntityClass(ICMSCST.class);
 		viewParams.setIdIsEditable(idIsEditable);

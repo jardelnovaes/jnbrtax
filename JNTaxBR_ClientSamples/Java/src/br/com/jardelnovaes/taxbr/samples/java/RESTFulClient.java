@@ -94,7 +94,7 @@ public class RESTFulClient {
 	public static void Test() throws Exception
     {
 		RESTFulClient client = new RESTFulClient();
-		client.setURLBase("http://192.168.211.111:9095/JNTaxBRPortal/rest");
+		client.setURLBase("http://localhost:8080/JNTaxBRPortal/rest");
         client.setUser("master@test.com");
         client.setPassword("master");
         TaxRule rules = client.getTaxRule("SC", "SC", 1L);
