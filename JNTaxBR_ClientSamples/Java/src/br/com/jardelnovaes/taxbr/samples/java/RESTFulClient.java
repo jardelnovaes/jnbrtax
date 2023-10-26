@@ -5,7 +5,8 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-import org.codehaus.jackson.map.ObjectMapper;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import br.com.jardelnovaes.taxbr.models.TaxRule;
 
 public class RESTFulClient {
